@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NqlDotNet.DevExpress\NqlDotNet.DevExpress.csproj" />
     <ProjectReference Include="..\NqlDotNet\NqlDotNet.csproj" />
   </ItemGroup>
 

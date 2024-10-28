@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using NqlDotNet.DevExpress;
 
 namespace NqlDotNet.Tests
 {
@@ -44,15 +45,28 @@ namespace NqlDotNet.Tests
         }
 
         [Test]
-        public async Task CreateCriteriaTest()
+        public async Task NlToCriteria()
         {
             // Read the EntityProperties.json embedded resource
             string Doc = EmbeddedResourceHelper.ReadEmbeddedResource("DevExpressCriteriaSyntax.txt", "NqlDotNet.Tests.Data", this.GetType());
             string Schema = EmbeddedResourceHelper.ReadEmbeddedResource("EntityProperties.json", "NqlDotNet.Tests.Data", this.GetType());
 
             string Nlq = "Retrieve all invoices between the year 2000 and the current year for the customer named Joche that contains the products like hamburgers.";
-            NqlService nqlService = new NqlService();
-           var Criteria= await  nqlService.CreateCriteria(Nlq, Schema, Doc);
+            DevExNqlService nqlService = new DevExNqlService();
+           var Criteria= await  nqlService.NlToCriteria(Nlq, Schema, Doc);
+        }
+        [Test]
+        public async Task CriteriaToNl()
+        {
+            // Read the EntityProperties.json embedded resource
+            string Doc = EmbeddedResourceHelper.ReadEmbeddedResource("DevExpressCriteriaSyntax.txt", "NqlDotNet.Tests.Data", this.GetType());
+            string Schema = EmbeddedResourceHelper.ReadEmbeddedResource("EntityProperties.json", "NqlDotNet.Tests.Data", this.GetType());
+
+            string Nlq = "Retrieve all invoices between the year 2000 and the current year for the customer named Joche that contains the products like hamburgers.";
+            string CriteriaText = "[InvoiceHeader][invoiceDate] Between (#2000-01-01#, Now()) And [InvoiceHeader][customerID] In ([Customer][name] == 'Joche') And [InvoiceDetails][productID] In ([Product][name] like '%hamburgers%')";
+            DevExNqlService nqlService = new DevExNqlService();
+            var Nl = await nqlService.CriteriaToNl(CriteriaText, Schema, Doc);
+
         }
     }
 }

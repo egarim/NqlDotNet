@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NqlDotNet", "NqlDotNet\NqlD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NqlDotNet.Tests", "NqlDotNet.Tests\NqlDotNet.Tests.csproj", "{6D1D8B64-9DFF-461C-84AE-E0F74229EEDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NqlDotNet.DevExpress", "NqlDotNet.DevExpress\NqlDotNet.DevExpress.csproj", "{B77B8909-DB80-4651-BFD5-BB6D566C6E8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6D1D8B64-9DFF-461C-84AE-E0F74229EEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D1D8B64-9DFF-461C-84AE-E0F74229EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D1D8B64-9DFF-461C-84AE-E0F74229EEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77B8909-DB80-4651-BFD5-BB6D566C6E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77B8909-DB80-4651-BFD5-BB6D566C6E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77B8909-DB80-4651-BFD5-BB6D566C6E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77B8909-DB80-4651-BFD5-BB6D566C6E8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
