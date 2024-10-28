@@ -10,11 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\DevExpressCriteriaSyntax.txt" />
     <None Remove="Data\Entities.json" />
     <None Remove="Data\EntityProperties.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\DevExpressCriteriaSyntax.txt" />
     <EmbeddedResource Include="Data\Entities.json" />
     <EmbeddedResource Include="Data\EntityProperties.json" />
   </ItemGroup>

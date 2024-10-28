@@ -42,5 +42,17 @@ namespace NqlDotNet.Tests
 
             // Additional assertions or operations can be added here
         }
+
+        [Test]
+        public async Task CreateCriteriaTest()
+        {
+            // Read the EntityProperties.json embedded resource
+            string Doc = EmbeddedResourceHelper.ReadEmbeddedResource("DevExpressCriteriaSyntax.txt", "NqlDotNet.Tests.Data", this.GetType());
+            string Schema = EmbeddedResourceHelper.ReadEmbeddedResource("EntityProperties.json", "NqlDotNet.Tests.Data", this.GetType());
+
+            string Nlq = "Retrieve all invoices between the year 2000 and the current year for the customer named Joche that contains the products like hamburgers.";
+            NqlService nqlService = new NqlService();
+           var Criteria= await  nqlService.CreateCriteria(Nlq, Schema, Doc);
+        }
     }
 }
