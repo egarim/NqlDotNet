@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace NqlDotNet.DevExpress
 {
+
     public class DevExNqlService : INqlService
     {
         IChatCompletionService? chatService;

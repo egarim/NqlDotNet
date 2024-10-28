@@ -1,41 +1,42 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
-  </PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Data\DevExpressCriteriaSyntax.txt" />
-    <None Remove="Data\Entities.json" />
-    <None Remove="Data\EntityProperties.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Data\DevExpressCriteriaSyntax.txt" />
+		<None Remove="Data\Entities.json" />
+		<None Remove="Data\EntityProperties.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Data\DevExpressCriteriaSyntax.txt" />
-    <EmbeddedResource Include="Data\Entities.json" />
-    <EmbeddedResource Include="Data\EntityProperties.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Data\DevExpressCriteriaSyntax.txt" />
+		<EmbeddedResource Include="Data\Entities.json" />
+		<EmbeddedResource Include="Data\EntityProperties.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="NUnit" Version="3.14.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DevExpress.Xpo" Version="24.2.1-alpha-24260" />
+		<PackageReference Include="coverlet.collector" Version="6.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+		<PackageReference Include="NUnit" Version="3.14.0" />
+		<PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NqlDotNet.DevExpress\NqlDotNet.DevExpress.csproj" />
-    <ProjectReference Include="..\NqlDotNet\NqlDotNet.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NqlDotNet.DevExpress\NqlDotNet.DevExpress.csproj" />
+		<ProjectReference Include="..\NqlDotNet\NqlDotNet.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Using Include="NUnit.Framework" />
-  </ItemGroup>
+	<ItemGroup>
+		<Using Include="NUnit.Framework" />
+	</ItemGroup>
 
 </Project>
