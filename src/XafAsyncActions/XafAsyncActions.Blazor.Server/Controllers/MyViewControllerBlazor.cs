@@ -31,15 +31,18 @@ namespace XafAsyncActions.Blazor.Server.Controllers
         protected async override void AsyncAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
 
-
+            //HACK show loading indicator
             loading.Hold("Loading");
+            //Execute the base action on the agnostic module
             base.AsyncAction_Execute(sender, e);
         
 
         }
         protected async override void ProcessingDone(Dictionary<int, object> results)
         {
+            //HACK this is in the U.I thread, so we can interact with the U.I and the view and object space of this controller
             base.ProcessingDone(results);
+            //HACK hide loading indicator
             loading.Release("Loading");
            
         }

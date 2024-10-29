@@ -21,25 +21,28 @@ namespace XafAsyncActions.Module.Controllers
             AsyncAction.Execute += AsyncAction_Execute;
 
         }
+
         public async Task<string> Task1()
         {
-
+            //HACK this task will run on the background thread
             await Task.Delay(1000);
             return "Result from Task 1:" + Guid.NewGuid().ToString();
         }
 
         public async Task<string> Task2()
         {
+            //HACK this task will run on the background thread
             await Task.Delay(2000);
             return "Result from Task 2:" + Guid.NewGuid().ToString();
         }
         protected virtual void ProcessingDone(Dictionary<int, object> results)
         {
+            //HACK this is in the U.I thread, so we can interact with the U.I and the view and object space of this controller
         }
         protected virtual void AsyncAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
 
-
+            //hack we queue a list of tasks to run in the background
             var tasks = new List<Func<Task<Object>>>
             {
                 async () => { return await Task1(); },
@@ -50,18 +53,16 @@ namespace XafAsyncActions.Module.Controllers
                 async () => { return await Task2(); },
             };
 
-
-
-
             Action<int, string, Object> onProgressChanged = (progress, status, result) =>
             {
+                //HACK this is in the U.I thread, so we can interact with the U.I and the view and object space of this controller
                 Debug.WriteLine($"{status} - Result: {result}");
             };
 
             var worker = new AsyncBackgroundWorker<Object>(
-                tasks,
-                onProgressChanged,
-                result => ProcessingDone(result)
+                tasks,//List of task to run
+                onProgressChanged,//Progress report action
+                result => ProcessingDone(result) //Action to run when all tasks are done
             );
 
             worker.Start();
